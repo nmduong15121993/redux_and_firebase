@@ -7,13 +7,13 @@ class Storage {
     this.user = new User();
   }
 
-  saveUser = async (user) => {
+  saveUser = async (token) => {
     try {
-      this.user = User.clone({
-        ...this.user,
-        ...Utils.removeEmptyAttributes(user),
-      });
-      await localStorage.setItem(STORAGE.USER_DATA, JSON.stringify(this.user));
+      // this.user = User.clone({
+      //   ...this.user,
+      //   ...Utils.removeEmptyAttributes(user),
+      // });
+      await localStorage.setItem(STORAGE.USER_DATA, JSON.stringify(token));
     } catch (error) {
       console.log('[Storage] Save user error', error);
     } finally {

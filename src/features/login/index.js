@@ -62,7 +62,7 @@ function Login() {
                 },
                 {
                   type: 'email',
-                  message: 'Format email invalid'
+                  message: 'Bạn đã nhập sai email'
                 }
               ]}
             >
@@ -92,7 +92,7 @@ function Login() {
 
             <Form.Item {...tailLayout}>
               <Button loading={loading} type="primary" htmlType="Login">
-                Submit
+                Login
               </Button>
             </Form.Item>
             { error ? (<Alert message={error} type="error" />) : null }
