@@ -3,7 +3,7 @@ import {
   createSlice 
 } from '@reduxjs/toolkit';
 import { notification } from 'antd';
-import { firebase } from '../firebase';
+import { firebase } from '../../config/firebase';
 import Storage from '../../local-storage';
 
 const initialState = {

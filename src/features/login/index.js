@@ -8,22 +8,8 @@ import {
 } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginAsync } from './store';
-
+import { layout, tailLayout } from './constant';
 import './login.css';
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
 
 function Login() {
   const login = useSelector((root) => root.login);
@@ -35,8 +21,13 @@ function Login() {
 
   const onFinish = async (values) => {
     const { email, password } = values;
-    await dispatch(loginAsync({email, password}));
-    window.location.replace('/');
+    try {
+      await dispatch(loginAsync({email, password}));
+      window.location.replace('/');
+    } catch (error) {
+      // Handle error
+      console.log(error);
+    }
   };
 
   return (

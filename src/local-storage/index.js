@@ -7,13 +7,13 @@ class Storage {
     this.user = new User();
   }
 
-  saveUser = async (token) => {
+  saveUser = (token) => {
     try {
       // this.user = User.clone({
       //   ...this.user,
       //   ...Utils.removeEmptyAttributes(user),
       // });
-      await localStorage.setItem(STORAGE.USER_DATA, JSON.stringify(token));
+      localStorage.setItem(STORAGE.USER_DATA, JSON.stringify(token));
     } catch (error) {
       console.log('[Storage] Save user error', error);
     } finally {
@@ -21,10 +21,10 @@ class Storage {
     }
   };
 
-  removeUser = async () => {
+  removeUser = () => {
     try {
       this.user = new User();
-      await localStorage.removeItem(STORAGE.USER_DATA);
+      localStorage.removeItem(STORAGE.USER_DATA);
     } catch (error) {
       console.log('[Storage] Remove user data error', error);
     }
